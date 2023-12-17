@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Main page - {{ title }}
+{% endblock %}
+
+
+{% block content %}
+<div>Logged in as {{ uname }}</div>
+<div><a href="/logout/" class="nav-link">Выйти</a></div>
+
+<h1>
+    Mainpage - {{ title }}
+</h1>
+
+{% with messages = get_flashed_messages(with_categories=true)
+%}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }}">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% endblock %}
