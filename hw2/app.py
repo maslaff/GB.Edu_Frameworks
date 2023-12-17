@@ -53,6 +53,7 @@ def logout():
     name = request.cookies.get("username")
     response = make_response(redirect(url_for("index")))
     response.delete_cookie("username")
+    response.delete_cookie("email")
     flash(f"User {name} logged out", "success")
     return response
 
