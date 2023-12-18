@@ -1,4 +1,4 @@
-from hw2.app import app
+from hw3.app import app
 
 if __name__ == "__main__":
     app.run(debug=True)

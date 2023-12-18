@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+{{ title }} - Регистрация
+{% endblock %}
+
+
+{% block content %}
+<form method="post">
+    <input type="string" name="first_name" placeholder="Имя">
+    <input type="string" name="last_name" placeholder="Фамилия">
+    <input type="email" name="email" placeholder="Почта">
+    <input type="password" name="password" placeholder="Пароль">
+    <input type="password" name="repr_password" placeholder="Повторите пароль">
+    <input type="submit" value="Отправить">
+</form>
+{% endblock %}
