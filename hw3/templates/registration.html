@@ -7,12 +7,30 @@
 
 
 {% block content %}
-<form method="post">
-    <input type="string" name="first_name" placeholder="Имя">
-    <input type="string" name="last_name" placeholder="Фамилия">
-    <input type="email" name="email" placeholder="Почта">
-    <input type="password" name="password" placeholder="Пароль">
-    <input type="password" name="repr_password" placeholder="Повторите пароль">
-    <input type="submit" value="Отправить">
+<form method="POST" action="{{ url_for('registration') }}">
+    {{ form.csrf_token }}
+    <p>
+        {{ form.fname.label }}<br>
+        {{ form.fname(size=32) }}
+    </p>
+    <p>
+        {{ form.lname.label }}<br>
+        {{ form.lname(size=32) }}
+    </p>
+    <p>
+        {{ form.email.label }}<br>
+        {{ form.email(size=32) }}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password(size=32) }}
+    </p>
+    <p>
+        {{ form.confirm_password.label }}<br>
+        {{ form.confirm_password(size=32) }}
+    </p>
+    <p>
+        <input type="submit" value="Register">
+    </p>
 </form>
 {% endblock %}

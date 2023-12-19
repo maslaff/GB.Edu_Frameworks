@@ -16,6 +16,16 @@ initial-scale=1, shrink-to-fit=no">
             <li class="nav-item"><a href="/second/" class="nav-link">Вторая</a></li>
             <li class="nav-item"><a href="/other/" class="nav-link">Другая</a></li>
         </ul>
+        {% with messages = get_flashed_messages(with_categories=true)%}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
         {% block content %}
         Джай Шри Кришна!
         {% endblock %}

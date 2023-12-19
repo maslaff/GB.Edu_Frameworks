@@ -7,22 +7,19 @@
 
 
 {% block content %}
-
-{% with messages = get_flashed_messages(with_categories=true)
-%}
-{% if messages %}
-{% for category, message in messages %}
-<div class="alert alert-{{ category }}">
-    {{ message }}
-</div>
-{% endfor %}
-{% endif %}
-{% endwith %}
-
-<form method="post">
-    <input type="email" name="email" placeholder="Почта">
-    <input type="password" name="password" placeholder="Пароль">
-    <input type="submit" value="Отправить">
+<form method="POST" action="{{ url_for('login') }}">
+    {{ form.csrf_token }}
+    <p>
+        {{ form.email.label }}<br>
+        {{ form.email(size=32) }}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password(size=32) }}
+    </p>
+    <p>
+        <input type="submit" value="Login">
+    </p>
 </form>
 <a href="/registration/" class="nav-link">Регистрация</a>
 
