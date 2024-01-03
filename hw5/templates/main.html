@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Things</title>
+</head>
+
+<body>
+    <h1>List of Things</h1>
+    <table cols="3" border="1" width="500" cellspacing="0">
+        {% for id, thing in things.items() if thing.active %}
+        <tr>
+            <td><b>{{ id }}</b></td>
+            <td>{{ thing.name }}</td>
+            <td>{{ thing.thing_type }}</td>
+            <td>{{ thing.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <h2>Add user</h2>
+    <form method=post action="/">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="thing_type" placeholder="Type">
+        <input type="text" name="description" placeholder="Description">
+        <button type="submit">Add</button>
+    </form>
+</body>
+
+</html>
